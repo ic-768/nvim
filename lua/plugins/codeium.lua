@@ -1,12 +1,13 @@
 local M = {
   'Exafunction/codeium.vim', branch='main',
-  lazy = false
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "hrsh7th/nvim-cmp",
+  },
 }
 
 M.config = function()
-  vim.keymap.set('i', '<script><silent><nowait><expr> <tab>', 'codeium#Accept()', { silent = true, nowait = true, expr = true })
-  vim.keymap.set('i', '<script><silent><nowait><expr> <C-i>', 'codeium#AcceptNextWord()', { silent = true, nowait = true, expr = true })
-  vim.keymap.set('i', '<script><silent><nowait><expr> <C-l>', 'codeium#AcceptNextLine()', { silent = true, nowait = true, expr = true })
+  vim.keymap.set("i", "<C-j>", function() return vim.fn["codeium#AcceptNextWord"]() end, { expr = true, silent = true })
   vim.keymap.set('i', '<C-s>', '<Cmd>call codeium#CycleCompletions(1)<CR>', { silent = true })
   vim.keymap.set('i', '<C-a>', '<Cmd>call codeium#CycleCompletions(-1)<CR>', { silent = true })
   vim.keymap.set('i', '<C-x>', '<Cmd>call codeium#Clear()<CR>', { silent = true })
@@ -19,14 +20,14 @@ M.config = function()
     python = true
   }
 
--- add codeium status to statusline
-local existing_statusline = vim.opt.statusline:get()
-local codeiumStatus = '%{codeium#GetStatusString()} '
-local codeiumColor = "%#Title#"
+  -- add codeium status to statusline
+  local existing_statusline = vim.opt.statusline:get()
+  local codeiumStatus = '%{codeium#GetStatusString()} '
+  local codeiumColor = "%#Title#"
 
 
-local new_statusline = string.format('%s%s%s',codeiumColor, codeiumStatus, existing_statusline)
-vim.opt.statusline = new_statusline
+  local new_statusline = string.format('%s%s%s',codeiumColor, codeiumStatus, existing_statusline)
+  vim.opt.statusline = new_statusline
 
 
 end
