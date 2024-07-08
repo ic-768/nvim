@@ -36,6 +36,10 @@ o.ve = "all" --freely move cursor
 o.relativenumber = true
 o.expandtab = true
 
+-- For coc
+o.updatetime = 300
+o.signcolumn = "yes"
+
 local function git_branch()
   local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
   if string.len(branch) > 0 then

@@ -28,6 +28,26 @@ M.config = function() vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { sile
     vim.cmd('CocCommand prettier.forceFormatDocument')
   end, { nargs = 0 })
 
+ -- Highlight the symbol and its references on a CursorHold event(cursor is idle)
+vim.api.nvim_create_augroup("CocGroup", {})
+vim.api.nvim_create_autocmd("CursorHold", {
+    group = "CocGroup",
+    command = "silent call CocActionAsync('highlight')",
+    desc = "Highlight symbol under cursor on CursorHold"
+})
+
+-- Remap <C-f> and <C-b> to scroll float windows/popups
+---@diagnostic disable-next-line: redefined-local
+local opts = {silent = true, nowait = true, expr = true}
+  vim.keymap.set("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
+  vim.keymap.set("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+  vim.keymap.set("i", "<C-f>",
+         'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
+  vim.keymap.set("i", "<C-b>",
+         'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"', opts)
+  vim.keymap.set("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
+  vim.keymap.set("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+
   vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
   vim.keymap.set('n', 'K', ':lua vim.fn.CocActionAsync("doHover")<CR>', { silent = true })
   vim.keymap.set('n', ':E', '<Cmd>CocCommand explorer<CR>', { silent = true })
