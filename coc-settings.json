@@ -4,7 +4,9 @@
     "v":"open:vsplit",
     "L":"copyRelativeFilepath",
     "q":"quickfix:replace",
-    "Q":"quickfix:add"
+    "Q":"quickfix:add",
+    "g[": ["wait", "markPrev:diagnosticError"],
+    "g]": ["wait", "markNext:diagnosticError"]
   },
   "explorer.icon.customIcons": {
     "icons": {
