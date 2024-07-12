@@ -3,6 +3,7 @@
   "coc.nvim": { "branch": "master", "commit": "33d0a5233cf68e6f54a78e3c3c20958c96f3e4cc" },
   "codeium.vim": { "branch": "main", "commit": "e0342fde9474fdd0a36ff9692fe0031b7611a19f" },
   "git-blame.nvim": { "branch": "master", "commit": "408d5487d908dfe5d48e5645d8b27ddcc16b11e0" },
+  "gitsigns.nvim": { "branch": "main", "commit": "e784e5a078f993f7218b8a857cb581d5b9ca42dc" },
   "gruvbox-material": { "branch": "master", "commit": "0ab9d8c7a8b4cd26338ca0c816c4ca1a48f9d5d6" },
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
   "lazy.nvim": { "branch": "main", "commit": "1d451b4c2ce957da05e2123ce1a001804fc7ea96" },
