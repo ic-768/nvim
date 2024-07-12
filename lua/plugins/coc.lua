@@ -48,7 +48,6 @@ local opts = {silent = true, nowait = true, expr = true}
   vim.keymap.set("v", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
   vim.keymap.set("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
 
-  vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
   vim.keymap.set('n', 'K', ':lua vim.fn.CocActionAsync("doHover")<CR>', { silent = true })
   vim.keymap.set('n', ':E', '<Cmd>CocCommand explorer<CR>', { silent = true })
 
