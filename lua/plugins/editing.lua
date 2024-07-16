@@ -8,18 +8,6 @@ return {
     lazy = false,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    build = ":TSUpdate",
-    opts = {
-      highlight = { enable = true },
-    },
-  } ,
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    lazy = false
-  },
-  {
     'tpope/vim-surround',
     lazy = false,
   },
