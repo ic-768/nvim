@@ -35,4 +35,8 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = { 'typescriptreact', 'javascriptreact' },
   },
+  {
+    'tzachar/highlight-undo.nvim',
+    opts = { },
+  }
 }
