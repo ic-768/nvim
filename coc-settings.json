@@ -8,16 +8,9 @@
     "g[": ["wait", "markPrev:diagnosticError"],
     "g]": ["wait", "markNext:diagnosticError"]
   },
-  "explorer.icon.customIcons": {
-    "icons": {
-      "file":{
-        "code":" ",
-        "color":"#ffffff"
-      }
-    }
-  },
  "coc.preferences.formatOnSaveFiletypes": ["go","javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html","lua"],
   "eslint.enable": true,
+  "explorer.icon.enableNerdfont": true,
   "eslint.autoFixOnSave":true,
   "eslint.alwaysShowStatus":true,
   "prettier.semi": true,
