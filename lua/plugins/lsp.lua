@@ -50,13 +50,6 @@ return {
     end
   },
   {
-    "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp"
-  },
-  {
     "neovim/nvim-lspconfig",
     lazy = false,
   },
@@ -64,7 +57,6 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "L3MON4D3/LuaSnip",
     },
     config = function()
       local cmp = require("cmp")
@@ -72,12 +64,6 @@ return {
       vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
       cmp.setup({
-        snippet = {
-          -- REQUIRED - you must specify a snippet engine
-          expand = function(args)
-             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          end,
-        },
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
@@ -85,7 +71,6 @@ return {
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For vsnip users.
         }, {
           { name = 'buffer' },
         })
