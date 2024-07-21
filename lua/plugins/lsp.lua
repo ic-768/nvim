@@ -94,7 +94,6 @@ return {
         cmp.select_next_item()
       end
   )
-
     end
   }
 }
