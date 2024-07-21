@@ -1,17 +1,5 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    build = ":TSUpdate",
-    opts = {
-      highlight = { enable = true },
-    },
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    lazy = false
-  },
-  {
     'MeanderingProgrammer/markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter','nvim-tree/nvim-web-devicons' },
     config = function()
@@ -27,7 +15,10 @@ return {
     },
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = {'tsserver','eslint'},
+        automatic_installation = true,
+      })
 
       require("lspconfig").tsserver.setup{}
       require("lspconfig").eslint.setup{}
@@ -46,12 +37,8 @@ return {
           vim.keymap.set({ 'n', 'v' }, '<leader>ra', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         end,
-})
+      })
     end
-  },
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
   },
   {
     "hrsh7th/nvim-cmp",
