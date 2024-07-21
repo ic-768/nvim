@@ -80,14 +80,14 @@ return {
         mappings = {
           ["s"] = "open_split",
           ["S"] = "open_vsplit",
-          ["l"] = "open", -- TODO doesn't work :\
         },
-        filesystem={
-          follow_current_file = {
-            enabled = false
-          }
-        }})
-        vim.keymap.set('n', ':E', '<Cmd>Neotree toggle<CR>')
-      end
-    }
+        follow_current_file = {
+          enabled = true, -- This will find and focus the file in the active buffer every time
+          --               -- the current file is changed while the tree is open.
+          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+        },
+      })
+      vim.keymap.set('n', ':E', '<Cmd>Neotree toggle reveal <CR>')
+    end
   }
+}
