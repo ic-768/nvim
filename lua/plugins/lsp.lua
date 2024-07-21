@@ -32,8 +32,9 @@ return {
         callback = function(ev)
           local opts = { buffer = ev.buf }
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'gs', vim.lsp.buf.rename,opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+          --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ra', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         end,
@@ -52,7 +53,7 @@ return {
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-k>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
@@ -87,6 +88,12 @@ return {
       require('lspconfig')['tsserver'].setup {
         capabilities = capabilities
       }
+
+      vim.keymap.set("n", "<C-k>", function()
+        vim.api.nvim_feedkeys("viwoeA","n", false)
+        cmp.select_next_item()
+      end
+  )
 
     end
   }
