@@ -18,7 +18,6 @@ vim.api.nvim_set_keymap(
  [[:s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e<CR>:noh<CR>f"a]],
  { noremap = true, silent = true }
 )
-vim.g.codeium_disable_bindings = 1
 
 
 local o = vim.opt

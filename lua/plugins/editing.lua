@@ -39,31 +39,4 @@ return {
     'tzachar/highlight-undo.nvim',
     opts = { },
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    config = function ()
-      require("neo-tree").setup({
-        mapping_options = {
-          noremap = true,
-          nowait = true,
-        },
-        mappings = {
-          ["s"] = "open_split",
-          ["S"] = "open_vsplit",
-          ["l"] = "open", -- TODO doesn't work :\
-        },
-        filesystem={
-          follow_current_file = {
-            enabled = false
-          }
-        }})
-        vim.keymap.set('n', ':E', '<Cmd>Neotree toggle<CR>')
-      end
-    }
-  }
+}
