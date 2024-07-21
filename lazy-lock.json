@@ -1,10 +1,8 @@
 {
+  "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "arena.nvim": { "branch": "main", "commit": "1fc36331f89001a731aa6f5287a4130b95eda0b1" },
   "codeium.vim": { "branch": "main", "commit": "e0342fde9474fdd0a36ff9692fe0031b7611a19f" },
   "conform.nvim": { "branch": "master", "commit": "797de8f79055334104cf77893cd93fe3fc2ac154" },
-  "coq.artifacts": { "branch": "artifacts", "commit": "9c5067a471322c6bb866545e88e5b28c82511865" },
-  "coq.thirdparty": { "branch": "3p", "commit": "5f45777bcb0c14266a7e07ed474cb70c4e8b6397" },
-  "coq_nvim": { "branch": "coq", "commit": "2ef4bae6bb586e38d6a54e522000a8ee8c0450c6" },
   "git-blame.nvim": { "branch": "master", "commit": "408d5487d908dfe5d48e5645d8b27ddcc16b11e0" },
   "gitsigns.nvim": { "branch": "main", "commit": "f4928ba14eb6c667786ac7d69927f6aee6719f1e" },
   "gruvbox-material": { "branch": "master", "commit": "0ab9d8c7a8b4cd26338ca0c816c4ca1a48f9d5d6" },
