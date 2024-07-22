@@ -11,6 +11,8 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- up arrow saves
+vim.api.nvim_set_keymap('n', '<Up>', ':w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Backspace>', '<C-^>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
  'n',
