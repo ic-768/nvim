@@ -1,10 +1,10 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      highlight = { enable = true },
-    },
-  },
-  'nvim-treesitter/nvim-treesitter-context'
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		opts = {
+			highlight = { enable = true },
+		},
+	},
+	"nvim-treesitter/nvim-treesitter-context",
 }
