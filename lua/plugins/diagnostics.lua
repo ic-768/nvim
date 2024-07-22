@@ -1,18 +1,15 @@
 return {
   "folke/trouble.nvim",
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {},
   cmd = "Trouble",
-  dependencies={
-    'nvim-telescope/telescope.nvim'
-  },
   keys = {
     {
-      "<leader>xx",
+      "<leader>x",
       "<cmd>Trouble diagnostics toggle<cr>",
       desc = "Diagnostics (Trouble)",
     },
     {
-      "<leader>xX",
+      "<leader>X",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
       desc = "Buffer Diagnostics (Trouble)",
     },
