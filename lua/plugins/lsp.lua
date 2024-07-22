@@ -19,6 +19,15 @@ return {
 			function(server_name) -- default handler (optional)
 				require("lspconfig")[server_name].setup({})
 			end,
+
+			-- override the setup for specific server
+			["lua_ls"] = function()
+				require("lspconfig").lua_ls.setup({
+					settings = {
+						Lua = { diagnostics = { globals = { "vim" } } },
+					},
+				})
+			end,
 		})
 
 		vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
