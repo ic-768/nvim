@@ -1,5 +1,5 @@
 # My neovim setup
-## Complete with LSP, and a bunch of awesome plugins.
+## Custom installation with plugins for native LSP, completion, diagnostics, and a bunch of awesome functionality.
 
 ![image](https://i.imgur.com/TTu28sI.png)
 ![image](https://i.imgur.com/TCCiqBn.png)
