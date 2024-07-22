@@ -9,12 +9,13 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = {'tsserver','eslint'},
+        ensure_installed = {'tsserver','eslint','pyright'},
         automatic_installation = true,
       })
 
       require("lspconfig").tsserver.setup{}
       require("lspconfig").eslint.setup{}
+      require("lspconfig").pyright.setup{}
 
       vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
       vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
