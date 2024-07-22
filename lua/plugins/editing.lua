@@ -1,15 +1,12 @@
 return {
   {
     "ntpeters/vim-better-whitespace",
-    lazy = false,
   },
   {
     "mbbill/undotree",
-    lazy = false,
   },
   {
     'tpope/vim-surround',
-    lazy = false,
   },
   {
     "karb94/neoscroll.nvim",
@@ -27,7 +24,6 @@ return {
   },
   {
     'ap/vim-css-color',
-    lazy = false
   },
   {
     'razak17/tailwind-fold.nvim',

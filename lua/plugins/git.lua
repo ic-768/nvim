@@ -4,11 +4,9 @@ vim.g.gitblame_date_format = '%r'
 return {
   {
     'f-person/git-blame.nvim',
-    lazy = false
   },
   {
     'tpope/vim-fugitive',
-    lazy = false,
   },
   {
     'lewis6991/gitsigns.nvim',
