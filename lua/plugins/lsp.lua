@@ -10,12 +10,18 @@ return {
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {'tsserver','eslint','pyright'},
-        automatic_installation = true,
       })
 
-      require("lspconfig").tsserver.setup{}
-      require("lspconfig").eslint.setup{}
-      require("lspconfig").pyright.setup{}
+      require("mason-lspconfig").setup()
+
+      -- automatically install ensure_installed servers
+      require("mason-lspconfig").setup_handlers {
+        -- Will be called for each installed server that doesn't have
+        -- a dedicated handler.
+        function (server_name) -- default handler (optional)
+          require("lspconfig")[server_name].setup {}
+        end,
+      }
 
       vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
       vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
@@ -75,7 +81,7 @@ return {
         vim.api.nvim_feedkeys("viwoeA","n", false)
         cmp.select_next_item()
       end
-  )
+      )
     end
   }
 }
