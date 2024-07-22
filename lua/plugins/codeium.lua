@@ -2,7 +2,6 @@ local M = {
   'Exafunction/codeium.vim', branch='main',
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp",
   },
 }
 
