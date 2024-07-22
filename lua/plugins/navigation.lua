@@ -100,9 +100,13 @@ return {
           noremap = true,
           nowait = true,
         },
-        mappings = {
-          ["s"] = "open_split",
-          ["S"] = "open_vsplit",
+        window = {
+          mappings = {
+            ["l"] = "open_with_window_picker",
+            ["h"] = "close_node",
+            ["s"] = "open_split",
+            ["v"] = "open_vsplit",
+          },
         },
         follow_current_file = {
           enabled = true, -- This will find and focus the file in the active buffer every time
