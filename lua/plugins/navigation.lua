@@ -70,8 +70,26 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+      "s1n7ax/nvim-window-picker",
     },
     config = function ()
+      require("window-picker").setup({
+        highlights = {
+          statusline = {
+            focused = {
+              fg = '#ededed',
+              bg = '#e35e4f',
+              bold = true,
+            },
+            unfocused = {
+              fg = '#ffffff',
+              bg = '#000000',
+              bold = true,
+            },
+          },
+        }
+      })
+
       require("neo-tree").setup({
         mapping_options = {
           noremap = true,
