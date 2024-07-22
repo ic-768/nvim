@@ -1,86 +1,42 @@
 return {
-  {
-    "williamboman/mason.nvim",
-    dependencies={
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed = {'tsserver','eslint','pyright'},
-      })
-
-      require("mason-lspconfig").setup()
-
-      -- automatically install ensure_installed servers
-      require("mason-lspconfig").setup_handlers {
-        -- Will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup {}
-        end,
-      }
-
-      vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
-      vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
-
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-
-        callback = function(ev)
-          local opts = { buffer = ev.buf }
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-          vim.keymap.set('n', 'gs', vim.lsp.buf.rename,opts)
-          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-          --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-          vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
-        end,
-      })
-    end
+  "williamboman/mason.nvim",
+  dependencies={
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-    },
-    config = function()
-      local cmp = require("cmp")
+  config = function()
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = {'tsserver','eslint','pyright'},
+    })
 
-      vim.opt.completeopt = { "menu", "menuone", "noselect" }
+    require("mason-lspconfig").setup()
 
-      cmp.setup({
-        mapping = cmp.mapping.preset.insert({
-          ['<C-k>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-        }, {
-          { name = 'buffer' },
-        })
-      })
+    -- automatically install ensure_installed servers
+    require("mason-lspconfig").setup_handlers {
+      -- Will be called for each installed server that doesn't have
+      -- a dedicated handler.
+      function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+      end,
+    }
 
-      cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
+    vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+    vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
 
-      -- Set up lspconfig.
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      require('lspconfig')['tsserver'].setup {
-        capabilities = capabilities
-      }
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 
-      vim.keymap.set("n", "<C-k>", function()
-        vim.api.nvim_feedkeys("viwoeA","n", false)
-        cmp.select_next_item()
-      end
-      )
-    end
-  }
+      callback = function(ev)
+        local opts = { buffer = ev.buf }
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gs', vim.lsp.buf.rename,opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        --vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
+      end,
+    })
+  end
+  ,
 }

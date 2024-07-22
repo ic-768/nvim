@@ -1,12 +1,25 @@
 return {
+  "ntpeters/vim-better-whitespace",
+  "mbbill/undotree",
+  "tpope/vim-surround",
+  "ap/vim-css-color",
   {
-    "ntpeters/vim-better-whitespace",
+    'tzachar/highlight-undo.nvim',
+    opts = { },
+  },
+
+  {
+    'MeanderingProgrammer/markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter','nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('render-markdown').setup({})
+    end,
   },
   {
-    "mbbill/undotree",
-  },
-  {
-    'tpope/vim-surround',
+    'razak17/tailwind-fold.nvim',
+    opts= {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    ft = { 'typescriptreact', 'javascriptreact' },
   },
   {
     "karb94/neoscroll.nvim",
@@ -21,25 +34,5 @@ return {
         },
       })
     end
-  },
-  {
-    'ap/vim-css-color',
-  },
-  {
-    'razak17/tailwind-fold.nvim',
-    opts= {},
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    ft = { 'typescriptreact', 'javascriptreact' },
-  },
-  {
-    'tzachar/highlight-undo.nvim',
-    opts = { },
-  },
-  {
-    'MeanderingProgrammer/markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter','nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('render-markdown').setup({})
-    end,
   },
 }
