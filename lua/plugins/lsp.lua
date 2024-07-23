@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		"hrsh7th/nvim-cmp",
 	},
 	config = function()
 		require("mason").setup()
@@ -16,8 +17,13 @@ return {
 		require("mason-lspconfig").setup_handlers({
 			-- Will be called for each installed server that doesn't have
 			-- a dedicated handler.
+			--
 			function(server_name) -- default handler (optional)
-				require("lspconfig")[server_name].setup({})
+				local capabilities = require("cmp_nvim_lsp").default_capabilities()
+				require("lspconfig")[server_name].setup({
+
+					capabilities = capabilities,
+				})
 			end,
 		})
 

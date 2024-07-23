@@ -55,10 +55,6 @@ return {
 			})
 
 			-- Set up lspconfig.
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			require("lspconfig")["tsserver"].setup({
-				capabilities = capabilities,
-			})
 
 			vim.keymap.set("n", "<C-k>", function()
 				vim.api.nvim_feedkeys("viwoeA", "n", false)
