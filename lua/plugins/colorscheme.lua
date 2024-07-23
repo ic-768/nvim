@@ -12,7 +12,7 @@ return {
 				contrast = "hard",
 				customize = function(g, o)
 					if o.bg == colors.bg0 then
-						o.bg = "#131617"
+						o.bg = "#101314"
 					end
 					return o
 				end,
