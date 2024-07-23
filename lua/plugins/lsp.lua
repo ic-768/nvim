@@ -7,7 +7,7 @@ return {
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "tsserver", "eslint", "pyright", "lua_ls" },
+			ensure_installed = { "tsserver", "eslint", "tailwindcss", "pyright", "lua_ls" },
 		})
 
 		require("mason-lspconfig").setup()
@@ -32,9 +32,9 @@ return {
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 				vim.keymap.set("n", "gs", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-				--vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 				vim.keymap.set({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, opts)
+				--vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 			end,
 		})
 	end,
