@@ -40,6 +40,9 @@ o.relativenumber = true
 o.expandtab = true
 -- don't auto-resize all windows when splitting/closing panes
 o.equalalways = false
+-- so greek keyboard works with actions
+o.langmap =
+	"ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
 
 -- For coc
 o.updatetime = 300
