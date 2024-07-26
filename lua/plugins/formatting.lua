@@ -16,7 +16,7 @@ return {
 				json = { "prettierd" },
 				yaml = { "prettierd" },
 				markdown = { "prettierd" },
-				python = { "isort", "black" },
+				python = { "isort", "ruff_format" },
 				lua = { "stylua" },
 			},
 			format_on_save = function(bufnr)
