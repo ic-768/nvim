@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		local python = unpack({ "pyright", "ruff" })
-		local ts = unpack({ "tsserver", "eslint", "tailwindcss" })
+		local ts = unpack({ "tsserver", "eslint", "tailwindcss", "emmet_language_server" })
 		local lua = unpack({ "lua_ls" })
 
 		require("mason").setup()
