@@ -3,13 +3,14 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
+		local JS = { "eslint_d", "prettierd", "rustywind" }
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "eslint_d", "prettierd" },
-				typescript = { "eslint_d", "prettierd" },
-				javascriptreact = { "eslint_d", "prettierd" },
-				typescriptreact = { "eslint_d", "prettierd" },
+				javascript = JS,
+				typescript = JS,
+				javascriptreact = JS,
+				typescriptreact = JS,
 				css = { "prettierd" },
 				scss = { "prettierd" },
 				html = { "prettierd" },
