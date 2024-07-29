@@ -6,13 +6,18 @@ return {
 		"hrsh7th/nvim-cmp",
 	},
 	config = function()
-		local python = unpack({ "pyright", "ruff" })
-		local ts = unpack({ "tsserver", "eslint", "tailwindcss", "emmet_language_server" })
-		local lua = unpack({ "lua_ls" })
-
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { python, ts, lua },
+			ensure_installed = {
+				"lua_ls",
+				"pyright",
+				"ruff",
+				"tsserver",
+				"eslint",
+				"tailwindcss",
+				"emmet_language_server",
+				"jsonls",
+			},
 		})
 
 		require("mason-lspconfig").setup()
