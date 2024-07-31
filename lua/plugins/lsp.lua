@@ -36,8 +36,12 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
-		vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
+		vim.keymap.set("n", "g]", function()
+			vim.diagnostic.jump({ count = 1 })
+		end)
+		vim.keymap.set("n", "g[", function()
+			vim.diagnostic.jump({ count = -1 })
+		end)
 		vim.keymap.set("n", "gk", vim.diagnostic.open_float)
 
 		vim.api.nvim_create_autocmd("LspAttach", {
