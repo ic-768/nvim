@@ -11,7 +11,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"pyright",
-				"ruff",
+				"ruff_lsp",
 				"tsserver",
 				"eslint",
 				"tailwindcss",
@@ -38,6 +38,7 @@ return {
 
 		vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 		vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
+		vim.keymap.set("n", "gk", vim.diagnostic.open_float)
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
