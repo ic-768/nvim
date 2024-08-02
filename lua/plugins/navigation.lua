@@ -73,7 +73,12 @@ return {
 		"echasnovski/mini.files",
 		version = "*",
 		config = function()
-			require("mini.files").setup()
+			require("mini.files").setup({
+				windows = {
+					preview = true,
+					width_preview = 70,
+				},
+			})
 			local minifiles_toggle = function(...)
 				if not MiniFiles.close() then
 					MiniFiles.open(...)
