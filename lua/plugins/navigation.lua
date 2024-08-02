@@ -79,7 +79,12 @@ return {
 					MiniFiles.open(...)
 				end
 			end
+			-- open working directory
 			vim.keymap.set("n", ":E", minifiles_toggle)
+			-- open file directory
+			vim.keymap.set("n", ":F", function()
+				minifiles_toggle(vim.api.nvim_buf_get_name(0))
+			end)
 		end,
 	},
 }
