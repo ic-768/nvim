@@ -70,58 +70,11 @@ return {
 		end,
 	},
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-			"s1n7ax/nvim-window-picker",
-		},
+		"echasnovski/mini.files",
+		version = "*",
 		config = function()
-			require("window-picker").setup({
-				highlights = {
-					statusline = {
-						focused = {
-							fg = "#ededed",
-							bg = "#e35e4f",
-							bold = true,
-						},
-						unfocused = {
-							fg = "#ffffff",
-							bg = "#000000",
-							bold = true,
-						},
-					},
-				},
-			})
-			require("neo-tree").setup({
-				filesystem = {
-					filtered_items = {
-						visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
-						hide_dotfiles = true,
-						hide_gitignored = true,
-					},
-				},
-				mapping_options = {
-					noremap = true,
-					nowait = true,
-				},
-				window = {
-					mappings = {
-						["l"] = "open_with_window_picker",
-						["h"] = "close_node",
-						["s"] = "open_split",
-						["v"] = "open_vsplit",
-					},
-				},
-				follow_current_file = {
-					enabled = true, -- This will find and focus the file in the active buffer every time
-					--               -- the current file is changed while the tree is open.
-					leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-				},
-			})
-			vim.keymap.set("n", ":E", "<Cmd>Neotree toggle reveal <CR>")
+			require("mini.files").setup()
+			vim.keymap.set("n", ":E", ":lua MiniFiles.open()<CR>")
 		end,
 	},
 }
