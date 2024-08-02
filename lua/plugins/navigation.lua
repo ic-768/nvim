@@ -74,7 +74,12 @@ return {
 		version = "*",
 		config = function()
 			require("mini.files").setup()
-			vim.keymap.set("n", ":E", ":lua MiniFiles.open()<CR>")
+			local minifiles_toggle = function(...)
+				if not MiniFiles.close() then
+					MiniFiles.open(...)
+				end
+			end
+			vim.keymap.set("n", ":E", minifiles_toggle)
 		end,
 	},
 }
