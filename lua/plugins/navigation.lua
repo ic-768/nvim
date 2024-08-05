@@ -16,6 +16,7 @@ return {
 			vim.keymap.set("n", "<leader>r", telescope.registers, {})
 			vim.keymap.set("n", "<leader>t", telescope.live_grep, {})
 			vim.keymap.set("n", "<leader>g", telescope.git_status, {})
+			vim.keymap.set("n", "<leader>h", telescope.help_tags, {})
 			vim.keymap.set("n", "<leader>b", telescope.buffers, {})
 		end,
 	},
