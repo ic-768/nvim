@@ -88,6 +88,7 @@ return {
 					if not target_window then
 						return
 					end
+
 					vim.api.nvim_win_call(target_window, function()
 						vim.cmd(direction .. " split")
 						new_target_window = vim.api.nvim_get_current_win()
@@ -109,6 +110,7 @@ return {
 					-- Tweak keys to your liking
 					map_split(buf_id, "gs", "belowright horizontal")
 					map_split(buf_id, "gv", "belowright vertical")
+					vim.keymap.set("n", "<Esc>", MiniFiles.close, { buffer = buf_id })
 				end,
 			})
 
