@@ -95,7 +95,7 @@ return {
 					end)
 
 					MiniFiles.set_target_window(new_target_window)
-					MiniFiles.close()
+					MiniFiles.go_in({ close_on_file = true })
 				end
 
 				-- Adding `desc` will result into `show_help` entries
