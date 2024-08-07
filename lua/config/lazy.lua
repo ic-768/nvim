@@ -24,6 +24,7 @@ vim.api.nvim_set_keymap(
 )
 
 local o = vim.opt
+o.scrolloff = 6
 o.compatible = false
 o.linebreak = true
 o.breakindent = true
