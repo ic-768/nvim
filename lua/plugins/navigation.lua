@@ -47,27 +47,7 @@ return {
 		config = function()
 			vim.keymap.set("n", "<C-t>", ':lua require("arena").toggle()<CR>', { noremap = true, silent = true })
 
-			require("arena").setup({
-				keybinds = {
-					-- same as coc-explorer
-					["s"] = require("arena").action(function(bufnr, info)
-						vim.cmd({
-							cmd = "split",
-							args = { vim.fn.bufname(bufnr) },
-							mods = { horizontal = true },
-						})
-						vim.fn.cursor(info.lnum, 0)
-					end),
-					["v"] = require("arena").action(function(bufnr, info)
-						vim.cmd({
-							cmd = "split",
-							args = { vim.fn.bufname(bufnr) },
-							mods = { vertical = true },
-						})
-						vim.fn.cursor(info.lnum, 0)
-					end),
-				},
-			})
+			require("arena").setup({})
 		end,
 	},
 	{
