@@ -9,6 +9,9 @@ return {
 
 		require("gruvbox-material").setup({
 			contrast = "hard",
+			float = {
+				background_color = "#101314",
+			},
 			customize = function(g, o)
 				if o.bg == colors.bg0 then
 					o.bg = "#101314"
