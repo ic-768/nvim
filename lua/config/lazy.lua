@@ -22,6 +22,10 @@ vim.api.nvim_set_keymap(
 	[[:s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e<CR>:noh<CR>f"a]],
 	{ noremap = true, silent = true }
 )
+-- set current file as working directory
+vim.api.nvim_create_user_command("SetCwd", function()
+	vim.cmd("cd %:p:h")
+end, {})
 
 local o = vim.opt
 o.scrolloff = 6
