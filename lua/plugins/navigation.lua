@@ -1,4 +1,11 @@
 return {
+	--	{
+	--		"ic-768/quick-files",
+	--		name = "quick-files",
+	--		config = function()
+	--			require("quick-files").setup()
+	--		end,
+	--	},
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
@@ -22,23 +29,22 @@ return {
 	},
 	{
 		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			-- harpoon
-			vim.keymap.set(
-				"n",
-				"<Leader>s",
-				':lua require("harpoon.mark").add_file()<CR>',
-				{ noremap = true, silent = true }
-			)
-			vim.keymap.set(
-				"n",
-				"<Leader>w",
-				':lua require("harpoon.ui").toggle_quick_menu()<CR>',
-				{ noremap = true, silent = true }
-			)
-			vim.keymap.set("n", "<C-g>", ':lua require("harpoon.ui").nav_next()<CR>', { noremap = true, silent = true })
-			vim.keymap.set("n", "<C-h>", ':lua require("harpoon.ui").nav_prev()<CR>', { noremap = true, silent = true })
+			local harpoon = require("harpoon")
+			vim.keymap.set("n", "<leader>s", function()
+				harpoon:list():add()
+			end)
+			vim.keymap.set("n", "<Leader>w", function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end)
+			vim.keymap.set("n", "<C-g>", function()
+				harpoon:list():next()
+			end)
+			vim.keymap.set("n", "<C-h>", function()
+				harpoon:list():prev()
+			end)
 		end,
 	},
 	{
