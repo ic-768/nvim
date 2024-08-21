@@ -65,6 +65,10 @@ return {
 					preview = true,
 					width_preview = 70,
 				},
+
+				options = {
+					use_as_default_explorer = false,
+				},
 			})
 			local map_split = function(buf_id, lhs, direction)
 				local rhs = function()
