@@ -19,7 +19,7 @@ return {
 
 			local telescope = require("telescope.builtin")
 			vim.keymap.set("n", "<leader><leader>", telescope.resume, {})
-			vim.keymap.set("n", "<leader>f", telescope.find_files, {})
+			vim.keymap.set("n", "<leader>F", telescope.find_files, {})
 			vim.keymap.set("n", "<leader>r", telescope.registers, {})
 			vim.keymap.set("n", "<leader>t", telescope.live_grep, {})
 			vim.keymap.set("n", "<leader>g", telescope.git_status, {})
@@ -106,7 +106,7 @@ return {
 				end
 			end
 			-- open file directory
-			vim.keymap.set("n", "<leader>F", function()
+			vim.keymap.set("n", "<leader>f", function()
 				minifiles_toggle(vim.api.nvim_buf_get_name(0))
 			end)
 		end,
