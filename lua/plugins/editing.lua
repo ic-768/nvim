@@ -1,8 +1,8 @@
 return {
 	"ntpeters/vim-better-whitespace",
-	"mbbill/undotree",
-	"tpope/vim-surround",
 	"ap/vim-css-color",
+	"tpope/vim-surround",
+	"mbbill/undotree",
 	{
 		"tzachar/highlight-undo.nvim",
 		opts = {},

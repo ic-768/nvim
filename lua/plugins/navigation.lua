@@ -1,11 +1,11 @@
 return {
-	--	{
-	--		"ic-768/quick-files",
-	--		name = "quick-files",
-	--		config = function()
-	--			require("quick-files").setup()
-	--		end,
-	--	},
+	--{
+	--	"ic-768/quick-files",
+	--	name = "quick-files",
+	--	config = function()
+	--		require("quick-files").setup()
+	--	end,
+	--},
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
@@ -19,7 +19,7 @@ return {
 
 			local telescope = require("telescope.builtin")
 			vim.keymap.set("n", "<leader><leader>", telescope.resume, {})
-			vim.keymap.set("n", "<leader>F", telescope.find_files, {})
+			vim.keymap.set("n", "<leader>f", telescope.find_files, {})
 			vim.keymap.set("n", "<leader>r", telescope.registers, {})
 			vim.keymap.set("n", "<leader>t", telescope.live_grep, {})
 			vim.keymap.set("n", "<leader>g", telescope.git_status, {})
@@ -64,6 +64,12 @@ return {
 				windows = {
 					preview = true,
 					width_preview = 70,
+				},
+				mappings = {
+					go_in = "",
+					go_in_plus = "L",
+					go_out = "H",
+					go_out_plus = "",
 				},
 
 				options = {
@@ -110,7 +116,7 @@ return {
 				end
 			end
 			-- open file directory
-			vim.keymap.set("n", "<leader>f", function()
+			vim.keymap.set("n", "<leader>d", function()
 				minifiles_toggle(vim.api.nvim_buf_get_name(0))
 			end)
 		end,
