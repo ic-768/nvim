@@ -4,6 +4,15 @@ return {
 	"tpope/vim-surround",
 	"mbbill/undotree",
 	{
+		"echasnovski/mini.map",
+		version = false,
+		config = function()
+			local MiniMap = require("mini.map")
+			MiniMap.setup()
+			vim.keymap.set("n", "<leader>o", MiniMap.toggle)
+		end,
+	},
+	{
 		"tzachar/highlight-undo.nvim",
 		opts = {},
 	},
