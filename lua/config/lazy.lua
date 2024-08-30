@@ -88,6 +88,19 @@ end
 
 vim.opt.statusline = vim.opt.statusline + statusline()
 
+-- concatenate
+vim.keymap.set("v", "<leader>c", function()
+	-- Cut
+	vim.cmd('normal! "+d')
+	local selected_text = vim.fn.getreg("+")
+
+	-- Concatenate with comma
+	local concatenated = selected_text:gsub("\n", ",")
+
+	-- Copy to clipboard
+	vim.fn.setreg("+", concatenated)
+end, { noremap = true, silent = true })
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
