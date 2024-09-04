@@ -1,11 +1,11 @@
 return {
-	--{
-	--	"ic-768/quick-files",
-	--	name = "quick-files",
-	--	config = function()
-	--		require("quick-files").setup()
-	--	end,
-	--},
+	{
+		"ic-768/quick-files",
+		name = "quick-files",
+		config = function()
+			require("quick-files").setup()
+		end,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
@@ -45,15 +45,6 @@ return {
 			vim.keymap.set("n", "<C-h>", function()
 				harpoon:list():prev()
 			end)
-		end,
-	},
-	{
-		"dzfrias/arena.nvim",
-		event = "BufWinEnter",
-		config = function()
-			vim.keymap.set("n", "<C-t>", ':lua require("arena").toggle()<CR>', { noremap = true, silent = true })
-
-			require("arena").setup({})
 		end,
 	},
 	{

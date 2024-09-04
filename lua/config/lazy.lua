@@ -108,3 +108,23 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 })
+
+--browser search
+local browser_search = function(query)
+	query = query:gsub(" ", "+")
+	local url = "https://search.brave.com/" .. "search?q=" .. query
+	os.execute("xdg-open '" .. url .. "' > /dev/null 2>&1 &")
+end
+
+vim.api.nvim_create_user_command("BrowserSearch", function(opts)
+	browser_search(opts.args)
+end, { nargs = 1 })
+
+vim.api.nvim_create_user_command("BrowserSearchVisual", function()
+	local lines = vim.fn.getline("'<", "'>")
+	local query = type(lines) == "table" and table.concat(lines, " ") or lines
+	browser_search(query)
+end, { range = true })
+
+vim.keymap.set("n", "gb", ":BrowserSearch ", { noremap = true, silent = true })
+vim.keymap.set("v", "gs", ":'<,'>BrowserSearchVisual<CR>", { noremap = true, silent = true })
