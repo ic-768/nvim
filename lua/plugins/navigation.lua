@@ -58,7 +58,7 @@ return {
 	},
 	{
 		"echasnovski/mini.files",
-		version = "*",
+		version = false,
 		config = function()
 			require("mini.files").setup({
 				windows = {
