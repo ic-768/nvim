@@ -3,6 +3,7 @@ vim.g.gitblame_date_format = "%r"
 
 return {
 	"f-person/git-blame.nvim",
+	"sindrets/diffview.nvim",
 	"tpope/vim-fugitive",
 	{
 		"lewis6991/gitsigns.nvim",
