@@ -18,7 +18,14 @@ return {
 			})
 
 			local telescope = require("telescope.builtin")
-			vim.keymap.set("n", "<leader><leader>", telescope.resume, {})
+
+			local resume_in_normal = function()
+				local esc_code = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+				vim.api.nvim_feedkeys(esc_code, "n", false)
+				telescope.resume()
+			end
+
+			vim.keymap.set("n", "<leader><leader>", resume_in_normal, {})
 			vim.keymap.set("n", "<leader>f", telescope.find_files, {})
 			vim.keymap.set("n", "<leader>r", telescope.registers, {})
 			vim.keymap.set("n", "<leader>t", telescope.live_grep, {})
