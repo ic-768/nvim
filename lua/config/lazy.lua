@@ -109,7 +109,7 @@ require("lazy").setup({
 	},
 })
 
---browser search
+-- browser search
 local browser_search = function(query)
 	query = query:gsub(" ", "+")
 	local url = "https://search.brave.com/" .. "search?q=" .. query
@@ -128,3 +128,10 @@ end, { range = true })
 
 vim.keymap.set("n", "gb", ":BrowserSearch ", { noremap = true, silent = true })
 vim.keymap.set("v", "gs", ":'<,'>BrowserSearchVisual<CR>", { noremap = true, silent = true })
+
+-- copy path to clipboard
+local copy_path_to_clipboard = function()
+	vim.api.nvim_command('let @+ = expand("%:p")')
+end
+
+vim.keymap.set("n", "<leader>p", copy_path_to_clipboard, { noremap = true, silent = true })
