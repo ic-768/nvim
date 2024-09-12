@@ -20,9 +20,7 @@ return {
 			local telescope = require("telescope.builtin")
 
 			local resume_in_normal = function()
-				local esc_code = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
-				vim.api.nvim_feedkeys(esc_code, "n", false)
-				telescope.resume()
+				telescope.resume({ initial_mode = "normal" })
 			end
 
 			vim.keymap.set("n", "<leader><leader>", resume_in_normal, {})
