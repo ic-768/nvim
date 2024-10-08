@@ -6,7 +6,22 @@ return {
 			require("hlchunk").setup({
 				chunk = {
 					enable = true,
-					-- ...
+				},
+				blank = {
+					enable = true,
+					chars = {
+						"․",
+						"⁚",
+						"⁖",
+						"⁘",
+						"⁙",
+					},
+					style = {
+						"#666666",
+						"#555555",
+						"#444444",
+						"#806d9c",
+					},
 				},
 			})
 		end,
