@@ -1,9 +1,5 @@
 return {
 	{
-		"sphamba/smear-cursor.nvim",
-		opts = {},
-	},
-	{
 		"shellRaining/hlchunk.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
