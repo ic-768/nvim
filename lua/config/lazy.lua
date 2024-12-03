@@ -15,7 +15,11 @@ vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap("n", "<Up>", ":w<CR>", { noremap = true, silent = true })
 -- right arrow saves
 vim.api.nvim_set_keymap("n", "<Right>", ":q<CR>", { noremap = true, silent = true })
+-- toggle tailwind class visibility
+vim.api.nvim_set_keymap("n", "<C-t>", ":TailwindFoldToggle<CR>", { noremap = true, silent = true })
+-- toggle last window
 vim.keymap.set("n", "<Backspace>", "<C-^>", { noremap = true, silent = true })
+-- add className to an html tag
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>c",
