@@ -66,19 +66,30 @@ return {
 		version = false,
 		config = function()
 			require("mini.files").setup({
+				-- General options
+				options = {
+					-- Whether to delete permanently or move into module-specific trash
+					permanent_delete = true,
+					-- Whether to use for editing directories
+					use_as_default_explorer = true,
+				},
 				windows = {
+					-- Maximum number of windows to show side by side
+					max_number = math.huge,
+					-- Whether to show preview of file/directory under cursor
 					preview = true,
-					width_preview = 70,
+					-- Width of focused window
+					width_focus = 50,
+					-- Width of non-focused window
+					width_nofocus = 15,
+					-- Width of preview window
+					width_preview = 40,
 				},
 				mappings = {
 					go_in = "",
 					go_in_plus = "L",
 					go_out = "H",
 					go_out_plus = "",
-				},
-
-				options = {
-					use_as_default_explorer = false,
 				},
 			})
 			local map_split = function(buf_id, lhs, direction)
