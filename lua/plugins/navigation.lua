@@ -14,6 +14,15 @@ return {
 			require("telescope").setup({
 				defaults = {
 					file_ignore_patterns = { "node_modules", "package%-lock" },
+					mappings = {
+						n = {
+							["<C-s>"] = function(b_nr)
+								local actions = require("telescope.actions")
+								actions.send_selected_to_qflist(b_nr)
+								actions.open_qflist(b_nr)
+							end,
+						},
+					},
 				},
 			})
 
