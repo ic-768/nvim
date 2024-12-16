@@ -28,17 +28,19 @@ return {
 
 			local telescope = require("telescope.builtin")
 
-			local resume_in_normal = function()
-				telescope.resume({ initial_mode = "normal" })
+			local start_in_normal = function(picker)
+				return function()
+					picker({ initial_mode = "normal" })
+				end
 			end
 
-			vim.keymap.set("n", "<leader><leader>", resume_in_normal, {})
+			vim.keymap.set("n", "<leader><leader>", start_in_normal(telescope.resume), {})
 			vim.keymap.set("n", "<leader>f", telescope.find_files, {})
 			vim.keymap.set("n", "<leader>r", telescope.registers, {})
 			vim.keymap.set("n", "<leader>t", telescope.live_grep, {})
 			vim.keymap.set("n", "<leader>g", telescope.git_status, {})
 			vim.keymap.set("n", "<leader>h", telescope.help_tags, {})
-			vim.keymap.set("n", "<leader>b", telescope.buffers, {})
+			vim.keymap.set("n", "<leader>b", start_in_normal(telescope.buffers), {})
 		end,
 	},
 	{
