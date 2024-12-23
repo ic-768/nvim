@@ -24,6 +24,12 @@ return {
 						},
 					},
 				},
+				pickers = {
+					buffers = {
+						sort_lastused = false,
+						sort_mru = true,
+					},
+				},
 			})
 
 			local telescope = require("telescope.builtin")

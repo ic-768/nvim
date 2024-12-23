@@ -18,7 +18,6 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"pyright",
-					"ruff_lsp",
 					"ts_ls",
 					"eslint",
 					"tailwindcss",
