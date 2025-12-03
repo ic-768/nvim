@@ -4,7 +4,12 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local conform = require("conform")
-			local JS = { "eslint_d", "prettierd", "rustywind" }
+			local JS = {
+				"eslint_d",
+				-- TODO removed this 6:12 on Fri 26 Sep to see if itll help with the timeouts
+				-- "prettierd",
+				-- "rustywind",
+			}
 
 			conform.setup({
 				formatters_by_ft = {
@@ -26,7 +31,7 @@ return {
 					if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 						return
 					end
-					return { lsp_format = "fallback", timeout_ms = 5000 }
+					return { lsp_format = "fallback", timeout_ms = 1500 }
 				end,
 			})
 

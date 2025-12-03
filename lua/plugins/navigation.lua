@@ -55,7 +55,8 @@ return {
 			vim.keymap.set("n", "<leader>g", telescope_builtin.git_status, {})
 			vim.keymap.set("n", "<leader>h", telescope.extensions.git_file_history.git_file_history, {})
 			vim.keymap.set("n", "<leader>b", start_in_normal(telescope_builtin.buffers), {})
-			vim.keymap.set("n", "<leader>k", telescope_builtin.jumplist, {})
+			vim.keymap.set("n", "<leader>k", start_in_normal(telescope_builtin.jumplist), {})
+			vim.keymap.set("n", "<leader>l", telescope_builtin.git_branches, {})
 		end,
 	},
 	{
