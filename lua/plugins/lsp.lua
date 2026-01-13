@@ -28,20 +28,6 @@ return {
 
 			require("mason-lspconfig").setup()
 
-			-- automatically install ensure_installed servers
-			require("mason-lspconfig").setup_handlers({
-				-- Will be called for each installed server that doesn't have
-				-- a dedicated handler.
-				--
-				function(server_name) -- default handler (optional)
-					-- https://github.com/neovim/nvim-lspconfig/pull/3232
-					local capabilities = require("cmp_nvim_lsp").default_capabilities()
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-					})
-				end,
-			})
-
 			vim.keymap.set("n", "g]", function()
 				vim.diagnostic.jump({ count = 1 })
 			end)

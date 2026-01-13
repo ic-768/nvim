@@ -4,9 +4,14 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local conform = require("conform")
-			local JS = { "eslint_d", "prettierd", "rustywind" }
+			local JS = {
+				"eslint_d",
+				"prettierd",
+				--"rustywind"
+			}
 
 			conform.setup({
+				log_level = vim.log.levels.TRACE,
 				formatters_by_ft = {
 					javascript = JS,
 					typescript = JS,
